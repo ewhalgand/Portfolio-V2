@@ -15,18 +15,18 @@ const Portfolio = () => {
           <Image className="banner" src={fts} alt="fantashop" />
           <h2>FantaShop</h2>
           <a href="https://fantashop.fr/" target="_blank" rel="noreferrer">Voire plus</a>
-          <Link href="">En savoir plus</Link>
+          <Link href="/works/fantashop">En savoir plus</Link>
         </Box>
         <Box>
           <Image className="banner" src={byoss} alt="fantashop" />
           <h2>Byoss.me</h2>
           <a href="https://www.byoss.me/fr/coming-soon" target="_blank" rel="noreferrer">Voire plus</a>
-          <Link href="">En savoir plus</Link>
+          <Link href="/works/byoss">En savoir plus</Link>
         </Box>
         <Box>
           <Image className="banner" src={sai} alt="fantashop" />
           <h2>Mon Portfolio</h2>
-          <a href="">Voire plus</a>
+          <a href="https://github.com/Saipatate/Portfolio-V2" target="_blank" rel="noreferrer">Voire plus</a>
           <Link href="">En savoir plus</Link>
         </Box>
       </Container>
