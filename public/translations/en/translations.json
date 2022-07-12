@@ -1,0 +1,56 @@
+{
+    "menu": {
+        "home": "Home",
+        "about": "About",
+        "portfolio": "Portfolio",
+        "contact": "Contact Me"
+    },
+    "homepage": {
+        "bigtitle": "Hello, my name is",
+        "smalltitle": "Web developer",
+        "button": "About me"
+    },
+    "aboutme": {
+        "title": "About",
+        "descriptions": {
+            "first": "My name is Ewen, I am a 17 year old French developer",
+            "second": "I have been a frontend developer for 2 years and I'm currently learning backend development",
+            "third": "I'm a lover of React and Next.js but I'm interested in many other technologies, for frontend and backend development",
+            "fourth": "If my profile interests you, do not hesitate to",
+            "link": "contact me"
+        }
+    },
+    "portfolio": {
+        "button": {
+            "seemore": "See more",
+            "findoutmore": "Find out more"
+        }
+    },
+    "techno": {
+        "title": "Tools and Technologies used"
+    },
+    "contact": {
+        "title": "Contact me",
+        "names": {
+            "name": "Enter your Name",
+            "email": "Enter your Email",
+            "message": "Enter yout message"
+        },
+        "button": "Send"
+    },
+    "fts": {
+        "description": "The fantashop is a market dedicated to the pvp server modded faction Paladium",
+        "title": "Technologies used",
+        "button": "Visit the site"
+    },
+    "byoss": {
+        "description": "Byoss.me is a social network for professionals or individuals in the style of Linkedin",
+        "title": "Technologies used",
+        "button": "Visit the site"
+    },
+    "me": {
+        "description": "Website representing my activity as a web developer, my skills and the technologies I use",
+        "title": "Technologies used",
+        "button": "See code"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "menu": {
+        "home": "Accueil",
+        "about": "À propos",
+        "portfolio": "Portfolio",
+        "contact": "Me contacter"
+    },
+    "homepage": {
+        "bigtitle": "Bonjour, je m'appelle",
+        "smalltitle": "Développeur web",
+        "button": "À propos de moi"
+    },
+    "aboutme": {
+        "title": "A propos",
+        "descriptions": {
+            "first": "Je m'appelle Ewen, je suis développeur français de 17 ans",
+            "second": "Je suis développeur frontend depuis 2 ans et j'apprend en se moment le développement backend",
+            "third": "Je suis un amoureux de React et Next.js mais je suis intéressé par de nombreuse autres technologie, pour du développement frontend et backend",
+            "fourth": "i mon profil vous intéresse, n'hésitez pas à me",
+            "link": "contacter"
+        }
+    },
+    "portfolio": {
+        "button": {
+            "seemore": "Voir plus",
+            "findoutmore": "En savoir plus"
+        }
+    },
+    "techno": {
+        "title": "Outils et Technologies utilisés"
+    },
+    "contact": {
+        "title": "Me contacter",
+        "names": {
+            "name": "Entrez votre Nom",
+            "email": "Entrez votre Email",
+            "message": "Entrez votre message"
+        },
+        "button": "Envoyer"
+    },
+    "fts": {
+        "description": "Le fantashop est un market dédier au serveur pvp faction moddé Paladium",
+        "title": "Téchnologies utilisées",
+        "button": "Visiter le site"
+    },
+    "byoss": {
+        "description": "Byoss.me est un réseau social pour les professionnels ou particuliers dans le style de Linkedin",
+        "title": "Téchnologies utilisées",
+        "button": "Visiter le site"
+    },
+    "me": {
+        "description": "Site web représentant mon activité de développeur web, mes compétences et les technologies que j'utilise",
+        "title": "Téchnologies utilisées",
+        "button": "Voir le code"
+    }
+}

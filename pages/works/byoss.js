@@ -2,10 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import byoss from "../../public/portfolio/byoss.png";
 
-const FantashopDetails = () => {
+const ByossDetails = () => {
+
+  const { t } = useTranslation("fr", { useSuspense: false });
+
   return (
     <Section>
       <div className="links">
@@ -15,15 +19,15 @@ const FantashopDetails = () => {
       </div>
       <Container>
         <div className="left">
-          <Image className="banner" src={byoss} alt="fantashop" />
+          <Image className="banner" src={byoss} alt="fantashop" layout="responsive"  />
         </div>
         <div className="right">
           <h1>Byoss.me</h1>
           <p>
-            Byoss.me est un réseau social pour lles professionnels ou particuliers dans le style de Linkedin
+            { t('byoss.description') }
           </p>
           <div className="techno">
-            <h1>Téchnologies utilisées</h1>
+            <h1>{ t('byoss.title') }</h1>
             <div className="icons">
               <a
                 href="https://fr.reactjs.org/"
@@ -46,7 +50,7 @@ const FantashopDetails = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Visiter le site
+            { t('byoss.button') }
           </a>
         </div>
       </Container>
@@ -74,6 +78,10 @@ const Section = styled.section`
       font-weight: 600;
     }
   }
+
+  @media screen and (max-width: 1250px) {
+    max-width: 800px;
+  }
 `;
 
 const Container = styled.div`
@@ -81,9 +89,17 @@ const Container = styled.div`
 
   .left {
     width: 700px;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #fff;
 
     .banner {
       border-radius: 10px;
+    }
+
+    @media screen and (max-width: 1250px) {
+      width: 100%;
+      margin-bottom: 50px;
     }
   }
 
@@ -130,6 +146,14 @@ const Container = styled.div`
             transition: 0.4s;
           }
         }
+
+        @media screen and (max-width: 450px) {
+          margin: 0 auto;
+        }
+      }
+
+      @media screen and (max-width: 450px) {
+        margin-bottom: 40px;
       }
     }
 
@@ -141,7 +165,24 @@ const Container = styled.div`
       text-decoration: none;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
+
+    @media screen and (max-width: 1250px) {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    @media screen and (max-width: 450px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
-export default FantashopDetails;
+export default ByossDetails;

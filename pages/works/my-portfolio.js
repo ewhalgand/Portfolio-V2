@@ -4,9 +4,9 @@ import { FaChevronRight } from "react-icons/fa";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
-import fts from "../../public/portfolio/fts.png";
+import sai from "../../public/portfolio/sai.png";
 
-const FantashopDetails = () => {
+const MyPortfolio = () => {
 
   const { t } = useTranslation("fr", { useSuspense: false });
 
@@ -15,19 +15,19 @@ const FantashopDetails = () => {
       <div className="links">
         <Link href="/#portfolio">Portfolio</Link>
         <FaChevronRight style={{ fontSize: "12px", margin: "0 10px" }} />
-        <span>FantaShop</span>
+        <span>Mon Portfolio</span>
       </div>
       <Container>
         <div className="left">
-          <Image className="banner" src={fts} alt="fantashop" layout="responsive" />
+          <Image className="banner" src={sai} alt="fantashop" layout="responsive" />
         </div>
         <div className="right">
-          <h1>FantaShop</h1>
+          <h1>Mon Portfolio</h1>
           <p>
-            { t('fts.description') }
+            { t('me.description') }
           </p>
           <div className="techno">
-            <h1>{ t('fts.title') }</h1>
+            <h1>{ t('me.title') }</h1>
             <div className="icons">
               <a
                 href="https://fr.reactjs.org/"
@@ -36,6 +36,9 @@ const FantashopDetails = () => {
               >
                 <img src="/icons/react.png" alt="icons" />
               </a>
+              <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
+                <img src="/icons/next.svg" alt="icons" />
+              </a>
               <a
                 href="https://styled-components.com/"
                 target="_blank"
@@ -43,21 +46,15 @@ const FantashopDetails = () => {
               >
                 <img src="/icons/sc.png" alt="icons" />
               </a>
-              <a href="https://nodejs.org/" target="_blank" rel="noreferrer">
-                <img src="/icons/node.svg" alt="icons" />
-              </a>
-              <a href="https://expressjs.com/" target="_blank" rel="noreferrer">
-                <img src="/icons/express.svg" alt="icons" />
-              </a>
             </div>
           </div>
           <a
             className="link"
-            href="https://fantashop.fr/"
+            href="https://github.com/Saipatate/Portfolio-V2"
             target="_blank"
             rel="noreferrer"
           >
-            { t('fts.button') }
+            { t('me.button') }
           </a>
         </div>
       </Container>
@@ -192,4 +189,4 @@ const Container = styled.div`
   }
 `;
 
-export default FantashopDetails;
+export default MyPortfolio;

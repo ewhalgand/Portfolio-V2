@@ -1,24 +1,26 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+
+  const { t } = useTranslation("fr", { useSuspense: false });
+
   return (
     <Section id="a-propos">
-      <h1>A propos</h1>
+      <h1>{ t('aboutme.title') }</h1>
       <p>
-        Je m'appelle Ewen, je suis développeur français de 17 ans
+      { t('aboutme.descriptions.first') }
         <br />
         <br />
-        Je suis développeur frontend depuis 2 ans et j'apprend en se moment le
-        développement backend
+        { t('aboutme.descriptions.second') }
         <br />
         <br />
-        Je suis un amoureux de React et Next.js mais je suis intéressé par de
-        nombreuse autres technologie, pour du développement frontend et backend
+        { t('aboutme.descriptions.third') }
         <br />
         <br />
-        Si mon profil vous intéresse, n'hésitez pas à me{" "}
-        <Link href="/#contact">contacter</Link>
+        { t('aboutme.descriptions.fourth') }{' '}
+        <Link href="/#contact">{ t('aboutme.descriptions.link') }</Link>
       </p>
     </Section>
   );
@@ -44,6 +46,10 @@ const Section = styled.section`
     color: #fff;
     font-size: clamp(10px, 5vw, 20px);
     width: 700px;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
   }
 
   a {

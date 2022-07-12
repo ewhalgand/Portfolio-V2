@@ -1,31 +1,40 @@
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 const Contact = () => {
+
+  const { t } = useTranslation("fr", { useSuspense: false });
+
   return (
     <Section id="contact">
-      <h1>Contact</h1>
+      <h1>{ t('contact.title') }</h1>
       <form action="">
         <div className="container">
           <input
             type="text"
             name="name"
-            placeholder="Enter your Name"
+            placeholder="Enter votre Nom"
             required
           />
           <input
             type="text"
             name="email"
-            placeholder="Enter your Email"
+            placeholder="Entrer votre Email"
             required
           />
         </div>
         <textarea
           className="description"
           rows={8}
-          placeholder="Enter your message"
+          placeholder="Enter votre message"
           required
         ></textarea>
-        <button>Send</button>
+        <motion.button
+          className="btn"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >{ t('contact.button') }</motion.button>
       </form>
     </Section>
   );
@@ -66,6 +75,10 @@ const Section = styled.section`
         border-radius: 10px;
         border: 2px solid #9200cf;
       }
+
+      @media screen and (max-width: 470px) {
+        flex-direction: column;
+      }
     }
 
     .description {
@@ -77,7 +90,7 @@ const Section = styled.section`
       border: 2px solid #9200cf;
     }
 
-    button {
+    .btn {
       width: 150px;
       padding: 6px 12px;
       background: transparent;
@@ -86,12 +99,10 @@ const Section = styled.section`
       border-radius: 10px;
       border: 2px solid #9200cf;
       cursor: pointer;
-      transition: 0.4s;
+    }
 
-      &:active {
-        transform: scale(0.8);
-        transition: 0.4s;
-      }
+    @media screen and (max-width: 580px) {
+      width: 100%;
     }
   }
 `;

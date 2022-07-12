@@ -1,36 +1,47 @@
 import About from "../components/About";
 import Portfolio from "../components/Portfolio";
-import Contact from './../components/Contact';
+import Techno from "../components/Techno";
+import Contact from "./../components/Contact";
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
+import { motion } from "framer-motion";
 import { IoIosArrowDown } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 import banner from "../public/ide.png";
 
 export default function Home() {
+  const { t } = useTranslation("fr", { useSuspense: false });
+
   return (
-  <>
-    <Section>
-      <Header>
-        <Title>
-          Bonjour, je m appelle <br /> Ewen a.k.a Saï
-        </Title>
-        <SmallTitle>
-          Développeur web <span>frontend</span>
-        </SmallTitle>
-        <Button href="/#a-propos">
-          À propos de moi 
-          <IoIosArrowDown className="arrow" />
-        </Button>
-      </Header>
-      <ImgContainer>
-        <Image src={banner} alt="banner" />
-      </ImgContainer>
-    </Section>
-    <About />
-    <Portfolio />
-    <Contact />
-  </>
+    <>
+      <Section>
+        <Header>
+          <Title>
+            {t("homepage.bigtitle")} <br /> Ewen a.k.a Saï
+          </Title>
+          <SmallTitle>
+            {t("homepage.smalltitle")} <span>frontend</span>
+          </SmallTitle>
+          <motion.a
+            className="btn"
+            href="/#a-propos"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            {t("homepage.button")}
+            <IoIosArrowDown className="arrow" />
+          </motion.a>
+        </Header>
+        <ImgContainer>
+          <Image src={banner} alt="banner" />
+        </ImgContainer>
+      </Section>
+      <About />
+      <Portfolio />
+      <Techno />
+      <Contact />
+    </>
   );
 }
 
@@ -38,26 +49,12 @@ const Section = styled.div`
   height: 80vh;
   display: flex;
   justify-content: center;
-`;
 
-const Header = styled.div`
-  line-height: 80px;
-  min-width: 700px;
-`;
-
-const Title = styled.h1`
-  color: #eee;
-  font-size: 4rem;
-  font-family: "Ubuntu", sans-serif;
-`;
-
-const SmallTitle = styled.h2`
-  font-size: 2rem;
-  color: #bdbdbd;
-  font-family: "Ubuntu", sans-serif;
-
-  span {
-    color: #a02dd7;
+  @media screen and (max-width: 1720px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
   }
 `;
 
@@ -68,8 +65,12 @@ const blinkingAnimation = keyframes`
 }
 `;
 
-const Button = styled.a`
+const Header = styled.div`
+  min-width: 700px;
+
+  .btn {
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 10px 20px;
   width: 200px;
@@ -81,6 +82,7 @@ const Button = styled.a`
   background: #A02DD7;
   line-height: 0;
   text-decoration: none;
+  margin-bottom: 30px;
   transition animation 0.5s;
 
   .arrow {
@@ -95,10 +97,47 @@ const Button = styled.a`
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
+  }
+
+  @media screen and (max-width: 1720px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 700px) {
+    min-width: 100%;
+  }
+`;
+
+const Title = styled.h1`
+  color: #eee;
+  font-size: clamp(40px, 7vw, 4rem);
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 20px;
+`;
+
+const SmallTitle = styled.h2`
+  font-size: clamp(20px, 4vw, 2rem);
+  color: #bdbdbd;
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 20px;
+
+  span {
+    color: #a02dd7;
+  }
 `;
 
 const ImgContainer = styled.div`
   width: 60%;
   display: flex;
   align-items: flex-end;
+
+  @media screen and (max-width: 1220px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
