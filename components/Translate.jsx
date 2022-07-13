@@ -4,15 +4,13 @@ import { useTranslation } from "react-i18next";
 const Translate = () => {
   const { i18n } = useTranslation("en", { useSuspense: false });
 
-  const handleLangChange = (e) => {
-    i18n.changeLanguage(e.target.value);
-  };
-
-  console.log(handleLangChange);
+  // const handleLangChange = (e) => {
+  //   i18n.changeLanguage(e.target.value);
+  // };
 
   return (
     <>
-      <Select onChange={handleLangChange}>
+      <Select >
         <option value="en">EN</option>
         <option value="fr" selected>
           FR
