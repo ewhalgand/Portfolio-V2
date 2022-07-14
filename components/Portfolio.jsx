@@ -1,7 +1,10 @@
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import fts from "../public/portfolio/fts.png";
 import byoss from "../public/portfolio/byoss.png";
@@ -11,23 +14,75 @@ const Portfolio = () => {
 
   const { t } = useTranslation("fr", { useSuspense: false });
 
+  let title = useRef(null);
+  let box = useRef(null);
+  let box2 = useRef(null);
+  let box3 = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const markers = false
+
+    gsap.from(title, {
+      scrollTrigger: {
+        trigger: title,
+        markers,
+      },
+      opacity: 0, 
+      y: 100, 
+      duration: 1,
+    })
+
+    gsap.from(box, {
+      scrollTrigger: {
+        trigger: box,
+        markers,
+      },
+      opacity: 0,
+      y: 100,
+      duration: 1,
+    })
+
+    gsap.from(box2, {
+      scrollTrigger: {
+        trigger: box2,
+        markers,
+      },
+      opacity: 0,
+      y: 100,
+      duration: 1.5,
+    })
+
+    gsap.from(box3, {
+      scrollTrigger: {
+        trigger: box3,
+        markers,
+      },
+      opacity: 0,
+      y: 100,
+      duration: 2,
+    })
+
+  }, [])
+
   return (
     <Section id="portfolio">
-      <h1>Portfolio</h1>
+      <h1 ref={el => {title = el}} >Portfolio</h1>
       <Container>
-        <Box>
+        <Box ref={el => {box = el}}>
           <Image className="banner" src={fts} alt="fantashop" />
           <h2>FantaShop</h2>
           <a href="https://fantashop.fr/" target="_blank" rel="noreferrer">{ t('portfolio.button.seemore') }</a>
           <Link href="/works/fantashop">{ t('portfolio.button.findoutmore') }</Link>
         </Box>
-        <Box>
+        <Box ref={el => {box2 = el}}>
           <Image className="banner" src={byoss} alt="fantashop" />
           <h2>Byoss.me</h2>
           <a href="https://www.byoss.me/fr/coming-soon" target="_blank" rel="noreferrer">{ t('portfolio.button.seemore') }</a>
           <Link href="/works/byoss">{ t('portfolio.button.findoutmore') }</Link>
         </Box>
-        <Box>
+        <Box ref={el => {box3 = el}}>
           <Image className="banner" src={sai} alt="fantashop" />
           <h2>Mon Portfolio</h2>
           <a href="https://github.com/Saipatate/Portfolio-V2" target="_blank" rel="noreferrer">{ t('portfolio.button.seemore') }</a>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,10 +24,18 @@ const Navbar = () => {
         <BurgerMenu
           isMobile={isMobile}
         >
-          <a href="#" onClick={() => setIsMobile(false)} >{ t('menu.home') }</a>
-          <a href="#a-propos" onClick={() => setIsMobile(false)} >{ t('menu.about') }</a>
-          <a href="#portfolio" onClick={() => setIsMobile(false)} >{ t('menu.portfolio') }</a>
-          <a href="#contact" onClick={() => setIsMobile(false)} >{ t('menu.contact') }</a>
+          <Link href="/">
+            <a onClick={() => setIsMobile(false)} >{ t('menu.home') }</a>
+          </Link>
+          <Link href="/#a-propos">
+            <a onClick={() => setIsMobile(false)} >{ t('menu.about') }</a>
+          </Link>
+          <Link href="#portfolio">
+            <a onClick={() => setIsMobile(false)} >{ t('menu.portfolio') }</a>
+          </Link>
+          <Link href="#contact">
+            <a href="#contact" onClick={() => setIsMobile(false)} >{ t('menu.contact') }</a>
+          </Link>
         </BurgerMenu>
       </Nav>
     </>

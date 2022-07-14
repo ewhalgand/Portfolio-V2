@@ -1,15 +1,49 @@
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const About = () => {
 
   const { t } = useTranslation("fr", { useSuspense: false });
 
+  let title = useRef(null);
+  let p1 = useRef(null);
+
+  useEffect(() => {
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const markers = false
+
+    gsap.from(title, {
+      scrollTrigger: {
+        trigger: title,
+        markers,
+      },
+      opacity: 0, 
+      y: 100, 
+      duration: 1,
+    })
+
+    gsap.from(p1, {
+      scrollTrigger: {
+        trigger: p1,
+        markers,
+      },
+      opacity: 0, 
+      y: 100, 
+      duration: 1.5,
+    })
+
+  }, [])
+
   return (
     <Section id="a-propos">
-      <h1>{ t('aboutme.title') }</h1>
-      <p>
+      <h1 ref={el => {title = el}} >{ t('aboutme.title') }</h1>
+      <p ref={el => {p1 = el}} >
       { t('aboutme.descriptions.first') }
         <br />
         <br />

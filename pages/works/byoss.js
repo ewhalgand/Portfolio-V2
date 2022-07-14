@@ -1,14 +1,68 @@
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
 
 import byoss from "../../public/portfolio/byoss.png";
 
 const ByossDetails = () => {
 
   const { t } = useTranslation("fr", { useSuspense: false });
+
+  let img = useRef(null);
+  let t1 = useRef(null);
+  let txt = useRef(null);
+  let t2 = useRef(null);
+  let icon = useRef(null);
+  let btn = useRef(null);
+
+  useEffect(() => {
+
+    gsap.from(img, {
+      opacity: 0, 
+      x: -100, 
+      duration: 1,
+    })
+
+    gsap.from(t1, {
+      opacity: 0, 
+      y: 100, 
+      duration: 1,
+      delay: 1.2,
+    })
+
+    gsap.from(txt, {
+      opacity: 0, 
+      y: 100, 
+      duration: 1,
+      delay: 1.4,
+    })
+
+    gsap.from(t2, {
+      opacity: 0, 
+      y: 100, 
+      duration: 1,
+      delay: 1.6,
+    })
+
+    gsap.from(icon, {
+      opacity: 0, 
+      x: 100, 
+      duration: 1,
+      delay: 1.6,
+    })
+
+    gsap.from(btn, {
+      opacity: 0, 
+      y: 100, 
+      duration: 1,
+      delay: 1.8,
+    })
+
+  }, [])
 
   return (
     <Section>
@@ -18,17 +72,17 @@ const ByossDetails = () => {
         <span>Byoss.me</span>
       </div>
       <Container>
-        <div className="left">
+        <div className="left" ref={el => {img = el}}>
           <Image className="banner" src={byoss} alt="fantashop" layout="responsive"  />
         </div>
         <div className="right">
-          <h1>Byoss.me</h1>
-          <p>
+          <h1 ref={el => {t1 = el}} >Byoss.me</h1>
+          <p ref={el => {txt = el}}>
             { t('byoss.description') }
           </p>
           <div className="techno">
-            <h1>{ t('byoss.title') }</h1>
-            <div className="icons">
+            <h1 ref={el => {t2 = el}}>{ t('byoss.title') }</h1>
+            <div className="icons" ref={el => {icon = el}}>
               <a
                 href="https://fr.reactjs.org/"
                 target="_blank"
@@ -45,6 +99,7 @@ const ByossDetails = () => {
             </div>
           </div>
           <a
+            ref={el => {btn = el}}
             className="link"
             href="https://fantashop.fr/"
             target="_blank"
@@ -129,7 +184,9 @@ const Container = styled.div`
 
       .icons {
         display: flex;
+        justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 20px;
         
         img {

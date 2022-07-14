@@ -18,6 +18,7 @@ export default function Home() {
   let bigTitle = useRef(null);
   let smallTitle = useRef(null);
   let btn = useRef(null);
+  let img = useRef(null);
 
   useEffect(() => {
     
@@ -39,6 +40,13 @@ export default function Home() {
       y: 100, 
       duration: 1,
       delay: 1
+    })
+
+    gsap.from(img, {
+      opcatiy: 0,
+      x: 4000,
+      duration: 2,
+      delay: 1.5
     })
 
   }, [])
@@ -64,7 +72,7 @@ export default function Home() {
             <IoIosArrowDown className="arrow" />
           </motion.a>
         </Header>
-        <ImgContainer>
+        <ImgContainer ref={el => {img = el}} >
           <Image src={banner} alt="banner" />
         </ImgContainer>
       </Section>

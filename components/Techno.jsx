@@ -1,14 +1,51 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const Techno = () => {
 
   const { t } = useTranslation("fr", { useSuspense: false });
 
+  let title = useRef(null);
+  let techno = useRef(null);
+
+  useEffect(() => {
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const markers = false
+
+    gsap.from(title, {
+      scrollTrigger: {
+        trigger: title,
+        markers,
+      },
+      opacity: 0, 
+      y: 100, 
+      duration: 1,
+    })
+
+    gsap.from(techno, {
+      scrollTrigger: {
+        trigger: techno,
+        start: 'center bottom',
+        end: '+=500',
+        scrub: true,
+      },
+      opacity: 0,
+      y: '100%',
+      ease: 'power4.out',
+      stagger: 0.1,
+    })
+
+  }, [])
+
   return (
     <Section>
-      <h1>{ t('techno.title') }</h1>
-      <Container>
+      <h1 ref={el => {title = el}} >{ t('techno.title') }</h1>
+      <Container ref={el => {techno = el}} >
         <h2>Html</h2>
         <h2>Css</h2>
         <h2>Scss</h2>
