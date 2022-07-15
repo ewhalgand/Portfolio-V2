@@ -1,35 +1,53 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
-import { FaTwitter, FaDiscord } from "react-icons/fa";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import Socials from "./Socials";
 
 const Contact = () => {
 
   const { t } = useTranslation("fr", { useSuspense: false });
 
+  let title = useRef(null);
+  let socials = useRef(null);
+
+  useEffect(() => {
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const markers = false
+
+    gsap.from(title, {
+      scrollTrigger: {
+        trigger: title,
+        markers,
+      },
+      opacity: 0, 
+      y: 100, 
+      duration: 1,
+    })
+
+    gsap.from(socials, {
+      scrollTrigger: {
+        trigger: socials,
+        markers,
+      },
+      opacity: 0,
+      x: 100,
+      duration: 1,
+      delay: 1.5
+    })
+
+  }, [])
+
   return (
     <Section id="contact">
-      <h1>
+      <h1 ref={el => {title = el}}>
         {t("contact.title")}
       </h1>
-        <div className="container">
-        <motion.a
-          href="https://twitter.com/Saipatatee"
-          target="_blank"
-          className="btn"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <FaTwitter style={{fontSize: "25px"}} />
-        </motion.a>
-        <motion.button
-          className="btn"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <FaDiscord style={{fontSize: "25px"}} />
-        </motion.button>
+        <div className="container" ref={el => {socials = el}}>
+          <Socials />
         </div>
     </Section>
   );
