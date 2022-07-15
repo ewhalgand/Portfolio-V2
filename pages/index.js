@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { IoIosArrowDown } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 import gsap from "gsap";
+import { Bounce } from "gsap";
 
 import banner from "../public/ide.png";
 
@@ -37,16 +38,16 @@ export default function Home() {
 
     gsap.from(btn, {
       opacity: 0, 
-      y: 100, 
+      y: 100,
       duration: 1,
       delay: 1
     })
 
     gsap.from(img, {
       opcatiy: 0,
-      x: 4000,
-      duration: 2,
-      delay: 1.5
+      y: -100,
+      easeInOut : Bounce.InOut,
+      duration: 1,
     })
 
   }, [])
