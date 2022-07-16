@@ -53,7 +53,6 @@ const Techno = () => {
         <h2>Bulma</h2>
         <h2>Styled Components</h2>
         <h2>Javascript</h2>
-        <h2>Typescript</h2>
         <h2>React</h2>
         <h2>Next</h2>
         <h2>Strapi</h2>

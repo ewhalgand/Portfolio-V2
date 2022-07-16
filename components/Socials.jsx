@@ -34,7 +34,7 @@ class Socials extends Component {
             whileTap={{ scale: 0.9 }}
           >
             {this.state.copied ? (
-                <Image src={success} alt="" />
+                <Image src={success} alt="icone success" />
             ) : (
               <FaDiscord style={{ fontSize: "25px" }} />
             )}

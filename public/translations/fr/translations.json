@@ -52,5 +52,8 @@
         "description": "Site web représentant mon activité de développeur web, mes compétences et les technologies que j'utilise",
         "title": "Téchnologies utilisées",
         "button": "Voir le code"
+    },
+    "notfound": {
+        "error": "Erreur :/ Page introuvable !"
     }
 }

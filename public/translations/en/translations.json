@@ -52,5 +52,8 @@
         "description": "Website representing my activity as a web developer, my skills and the technologies I use",
         "title": "Technologies used",
         "button": "See code"
+    },
+    "notfound": {
+        "error": "Error :/ Page not found !"
     }
 }
