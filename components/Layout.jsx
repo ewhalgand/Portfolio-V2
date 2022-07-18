@@ -8,25 +8,18 @@ const Layout = ({ children }) => {
     return (
     <>
         <Head>
-            <meta charset="utf-8" />
-            <title>Saï - Développeur Frontend</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="description" content="Saï homepage" />
             <meta name="author" content="Saï" />
-            <meta property="site_name" content="Saï" />
-            <meta property="title" content="Saï - Développeur Frontend" />
-            <meta property="image" content="/portfolio/sai.png" />
-            <meta name="description" content="Mon portfolio, regroupe tous mes projets" />
+            <meta name="twitter:title" content="Saï" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@Saipatatee" />
+            <meta name="twitter:creator" content="@Saipatatee" />
+            <meta name="twitter:image" content="https://ewha.fr/portfolio/sai.png" />
+            <meta property="og:site_name" content="Takuya Matsuyama" />
+            <meta name="og:title" content="Saï" />
             <meta property="og:type" content="website" />
-            <meta property="og:site_name" content="Saï" />
-            <meta property="og:url" content="https://ewha.fr/" />
-            <meta property="og:title" content="Mon Portfolio" />
-            <meta property="og:description" content="Mon Portfolio - Regroupe tous mes projets" />
-            <meta property="og:image" content="/portfolio/sai.png" />
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content="https://ewha.fr" />
-            <meta property="twitter:title" content="Mon Portfolio" />
-            <meta property="twitter:description" content="Mon Portfolio - Regroupe tous mes projets" />
-            <meta property="twitter:image" content="/portfolio/sai.png" />
+            <meta property="og:image" content="https://ewha.fr/portfolio/sai.png" />
             <meta name="keywords" content="ewen, saï, saipatate, web, developer, développeur, frontend, fantashop" />
         </Head>
 
