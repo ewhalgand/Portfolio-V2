@@ -11,6 +11,7 @@ const Layout = ({ children }) => {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="description" content="Saï homepage" />
             <meta name="author" content="Saï" />
+            <meta property="title" content="Saï - Développeur frontend" />
             <meta name="twitter:title" content="Saï" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content="@Saipatatee" />
