@@ -22,6 +22,7 @@ const Layout = ({ children }) => {
             <meta property="og:type" content="website" />
             <meta property="og:image" content="https://ewha.fr/portfolio/sai.png" />
             <meta name="keywords" content="ewen, saï, saipatate, web, developer, développeur, frontend, fantashop" />
+            <title>Saï - Développeur frontend</title>
         </Head>
 
         <Navbar />
