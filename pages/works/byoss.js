@@ -101,7 +101,7 @@ const ByossDetails = () => {
           <a
             ref={el => {btn = el}}
             className="link"
-            href="https://fantashop.fr/"
+            href="https://www.byoss.me/"
             target="_blank"
             rel="noreferrer"
           >
