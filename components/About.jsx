@@ -1,60 +1,69 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect,useEffect, useRef } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  let title = useRef();
+  let p1 = useRef();
 
-  const { t } = useTranslation("fr", { useSuspense: false });
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
 
-  let title = useRef(null);
-  let p1 = useRef(null);
+      const markers = false;
 
-  useEffect(() => {
+      gsap.from(title, {
+        scrollTrigger: {
+          trigger: title,
+          markers,
+        },
+        opacity: 0,
+        y: 100,
+        duration: 1,
+      });
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    const markers = false
-
-    gsap.from(title, {
-      scrollTrigger: {
-        trigger: title,
-        markers,
-      },
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-    })
-
-    gsap.from(p1, {
-      scrollTrigger: {
-        trigger: p1,
-        markers,
-      },
-      opacity: 0, 
-      y: 100, 
-      duration: 1.5,
-    })
-
-  }, [])
+      gsap.from(p1, {
+        scrollTrigger: {
+          trigger: p1,
+          markers,
+        },
+        opacity: 0,
+        y: 100,
+        duration: 1.5,
+      });
+    }, title, p1);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <Section id="a-propos">
-      <h1 ref={el => {title = el}} >{ t('aboutme.title') }</h1>
-      <p ref={el => {p1 = el}} >
-      { t('aboutme.descriptions.first') }
+      <h1
+        ref={(el) => {
+          title = el;
+        }}
+      >
+        A propos
+      </h1>
+      <p
+        ref={(el) => {
+          p1 = el;
+        }}
+      >
+        Je m&apos;appelle Ewen, je suis un développeur web français de 17 ans
         <br />
         <br />
-        { t('aboutme.descriptions.second') }
+        Je suis développeur frontend depuis presque 3 ans et développeur backend novice
         <br />
         <br />
-        { t('aboutme.descriptions.third') }
+        Je suis un amoureux de React et Next.js, mais je suis intéressé par de
+        nombreuses autres technologies, pour du développement frontend et backend
         <br />
         <br />
-        { t('aboutme.descriptions.fourth') }{' '}
-        <Link href="/#contact">{ t('aboutme.descriptions.link') }</Link>
+        Si mon profil vous intéresse, n&apos;hésitez pas à me{" "}
+        <Link href="/#contact">contacter</Link>
       </p>
     </Section>
   );

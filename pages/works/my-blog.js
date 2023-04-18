@@ -5,9 +5,9 @@ import { FaChevronRight } from "react-icons/fa";
 import styled from "styled-components";
 import gsap from "gsap";
 
-import fts from "../../public/portfolio/fts.webp";
+import blog from "../../public/portfolio/my-blog.webp";
 
-const FantashopDetails = () => {
+const MyBlog = () => {
   let img = useRef();
   let t1 = useRef();
   let txt = useRef();
@@ -66,16 +66,16 @@ const FantashopDetails = () => {
       <div className="links">
         <Link href="/#portfolio">Portfolio</Link>
         <FaChevronRight style={{ fontSize: "12px", margin: "0 10px" }} />
-        <span>FantaShop</span>
+        <span>My Blog</span>
       </div>
       <Container>
         <div className="left" ref={el => {img = el}}>
-          <Image className="banner" src={fts} alt="fantashop" layout="responsive" />
+          <Image className="banner" src={blog} alt="fantashop" layout="responsive" />
         </div>
         <div className="right">
-          <h1 ref={el => {t1 = el}}>FantaShop</h1>
+          <h1 ref={el => {t1 = el}}>My Blog</h1>
           <p ref={el => {txt = el}}>
-            Le fantashop est un market dédier au serveur pvp faction moddé Paladium
+            My blog est un petit blog fictif qui a pour but d&apos;ajouter plusieurs articles que tous les utilisateurs peuvent ensuite consulter
           </p>
           <div className="techno">
             <h1 ref={el => {t2 = el}}>Téchnologies utilisées</h1>
@@ -88,22 +88,36 @@ const FantashopDetails = () => {
                 <img src="/icons/react.png" alt="icons" title="React JS" />
               </a>
               <a
-                href="https://styled-components.com/"
+                href="https://stitches.dev/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="/icons/sc.png" alt="icons" title="Styled-components" />
+                <img src="/icons/stitches.png" alt="icons" title="Stiches CSS" />
+              </a>
+              <a
+                href="https://expressjs.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src="/icons/express.svg" alt="icons" title="Express JS" />
+              </a>
+              <a
+                href="https://www.mongodb.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src="/icons/mongodb.png" alt="icons" title="MongoDB" />
               </a>
             </div>
           </div>
           <a
             ref={el => {btn = el}}
             className="link"
-            href="https://fantashop.fr/"
+            href="https://github.com/Saipatate/Blog-app"
             target="_blank"
             rel="noreferrer"
           >
-            Visiter le site
+            Voir le code
           </a>
         </div>
       </Container>
@@ -240,4 +254,4 @@ const Container = styled.div`
   }
 `;
 
-export default FantashopDetails;
+export default MyBlog;

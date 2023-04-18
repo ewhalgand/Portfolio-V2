@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "framer-motion": "^6.4.3",
-    "gsap": "^3.10.4",
+    "gsap": "^3.11.5",
     "i18next": "^21.8.13",
+    "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^1.4.1",
     "next": "12.1.6",
     "react": "18.2.0",

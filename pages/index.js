@@ -7,60 +7,79 @@ import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { IoIosArrowDown } from "react-icons/io";
-import { useTranslation } from "react-i18next";
 import gsap from "gsap";
-import { Bounce } from "gsap";
 
 import banner from "../public/ide.png";
 
 export default function Home() {
-  const { t } = useTranslation("fr", { useSuspense: false });
-
-  let bigTitle = useRef(null);
-  let smallTitle = useRef(null);
-  let btn = useRef(null);
-  let img = useRef(null);
+  let bigTitle = useRef();
+  let smallTitle = useRef();
+  let btn = useRef();
+  let img = useRef();
 
   useEffect(() => {
+      let ctx = gsap.context(() => {
+        gsap.from(bigTitle, {
+          duration: 1.5,
+          opacity: 0,
+          ease: "bounce",
+          x: 140
+        })
     
-    gsap.from(bigTitle, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1
-    })
-
-    gsap.from(smallTitle, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 0.5
-    })
-
-    gsap.from(btn, {
-      opacity: 0, 
-      y: 100,
-      duration: 1,
-      delay: 1
-    })
-
-    gsap.from(img, {
-      opcatiy: 0,
-      y: -100,
-      easeInOut : Bounce.InOut,
-      duration: 1,
-    })
-
+        gsap.from(smallTitle, {
+          duration: 1.5,
+          opacity: 0,
+          ease: "bounce",
+          x: 140,
+          delay: 0.5
+        })
+    
+        gsap.from(btn, {
+          duration: 1.5,
+          opacity: 0,
+          ease: "bounce",
+          x: 140,
+          delay: 1
+        })
+    
+        gsap.from(img, {
+          x: -140,
+          ease: "slow",
+          duration: 1,
+        })
+      })
+      return () => ctx.revert();
   }, [])
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+  
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
 
   return (
     <>
       <Section>
         <Header>
           <Title ref={el => {bigTitle = el}} >
-            {t("homepage.bigtitle")} <br /> Ewen a.k.a Saï
+            Bonjour, je m&apos;appelle <br /> Ewen a.k.a Saï
           </Title>
           <SmallTitle ref={el => {smallTitle = el}}>
-            {t("homepage.smalltitle")} <span>frontend</span>
+            Développeur web <span>frontend</span>
           </SmallTitle>
           <motion.a
             ref={el => {btn = el}}
@@ -69,7 +88,7 @@ export default function Home() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            {t("homepage.button")}
+            À props de moi
             <IoIosArrowDown className="arrow" />
           </motion.a>
         </Header>
@@ -84,6 +103,8 @@ export default function Home() {
     </>
   );
 }
+
+
 
 const Section = styled.div`
   height: 80vh;

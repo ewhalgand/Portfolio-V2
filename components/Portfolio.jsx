@@ -1,69 +1,73 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-import fts from "../public/portfolio/fts.png";
-import byoss from "../public/portfolio/byoss.png";
-import sai from "../public/portfolio/sai.png";
+gsap.registerPlugin(ScrollTrigger);
 
 const Portfolio = () => {
-
-  const { t } = useTranslation("fr", { useSuspense: false });
-
-  let title = useRef(null);
-  let box = useRef(null);
-  let box2 = useRef(null);
-  let box3 = useRef(null);
+  let title = useRef();
+  let box = useRef();
+  let box2 = useRef();
+  let box3 = useRef();
+  let box4 = useRef();
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    let ctx = gsap.context(() => {
+      const markers = false
 
-    const markers = false
+      gsap.from(title, {
+        scrollTrigger: {
+          trigger: title,
+          markers,
+        },
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+      })
+  
+      gsap.from(box, {
+        scrollTrigger: {
+          trigger: box,
+          markers,
+        },
+        opacity: 0,
+        y: 100,
+        duration: 1,
+      })
+  
+      gsap.from(box2, {
+        scrollTrigger: {
+          trigger: box2,
+          markers,
+        },
+        opacity: 0,
+        y: 100,
+        duration: 1.5,
+      })
+  
+      gsap.from(box3, {
+        scrollTrigger: {
+          trigger: box3,
+          markers,
+        },
+        opacity: 0,
+        y: 100,
+        duration: 2,
+      })
 
-    gsap.from(title, {
-      scrollTrigger: {
-        trigger: title,
-        markers,
-      },
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
+      gsap.from(box4, {
+        scrollTrigger: {
+          trigger: box4,
+          markers,
+        },
+        opacity: 0,
+        y: 100,
+        duration: 2.5,
+      })
     })
-
-    gsap.from(box, {
-      scrollTrigger: {
-        trigger: box,
-        markers,
-      },
-      opacity: 0,
-      y: 100,
-      duration: 1,
-    })
-
-    gsap.from(box2, {
-      scrollTrigger: {
-        trigger: box2,
-        markers,
-      },
-      opacity: 0,
-      y: 100,
-      duration: 1.5,
-    })
-
-    gsap.from(box3, {
-      scrollTrigger: {
-        trigger: box3,
-        markers,
-      },
-      opacity: 0,
-      y: 100,
-      duration: 2,
-    })
-
+    return () => ctx.revert()
   }, [])
 
   return (
@@ -71,22 +75,28 @@ const Portfolio = () => {
       <h1 ref={el => {title = el}} >Portfolio</h1>
       <Container>
         <Box ref={el => {box = el}}>
-          <Image className="banner" src={fts} alt="fantashop" />
+          <img className="banner" src="/portfolio/fts.webp" alt="fantashop" />
           <h2>FantaShop</h2>
-          <a href="https://fantashop.fr/" target="_blank" rel="noreferrer">{ t('portfolio.button.seemore') }</a>
-          <Link href="/works/fantashop">{ t('portfolio.button.findoutmore') }</Link>
+          <a href="https://fantashop.fr/" target="_blank" rel="noreferrer">Voir plus</a>
+          <Link href="/works/fantashop">En savoir plus</Link>
         </Box>
         <Box ref={el => {box2 = el}}>
-          <Image className="banner" src={byoss} alt="fantashop" />
+          <img className="banner" src="/portfolio/byoss.webp" alt="fantashop" />
           <h2>Byoss.me</h2>
-          <a href="https://www.byoss.me/fr/coming-soon" target="_blank" rel="noreferrer">{ t('portfolio.button.seemore') }</a>
-          <Link href="/works/byoss">{ t('portfolio.button.findoutmore') }</Link>
+          <a href="https://www.byoss.me/fr/coming-soon" target="_blank" rel="noreferrer">Voir plus</a>
+          <Link href="/works/byoss">En savoir plus</Link>
         </Box>
         <Box ref={el => {box3 = el}}>
-          <Image className="banner" src={sai} alt="fantashop" />
+          <img className="banner" src="/portfolio/portfolio.webp" alt="fantashop" />
           <h2>Mon Portfolio</h2>
-          <a href="https://github.com/Saipatate/Portfolio-V2" target="_blank" rel="noreferrer">{ t('portfolio.button.seemore') }</a>
-          <Link href="/works/my-portfolio">{ t('portfolio.button.findoutmore') }</Link>
+          <a href="https://github.com/Saipatate/Portfolio-V2" target="_blank" rel="noreferrer">Voir plus</a>
+          <Link href="/works/my-portfolio">En savoir plus</Link>
+        </Box>
+        <Box ref={el => {box4 = el}}>
+          <img className="banner" style={{border: "2px solid #fff"}} src="/portfolio/my-blog.webp" alt="fantashop" />
+          <h2>My Blog</h2>
+          <a href="https://github.com/Saipatate/Blog-app" target="_blank" rel="noreferrer">Voir plus</a>
+          <Link href="/works/my-blog">En savoir plus</Link>
         </Box>
       </Container>
     </Section>
@@ -114,16 +124,27 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
+  width: 80%;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const Box = styled.div`
   width: 400px;
   background: #efefef;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 8px;
 
   .banner {
-    border-radius: 10px;
+    border-radius: 8px;
+    width: 100%;
+    height: 179px;
+
+    @media screen and (max-width: 600px) {
+      height: max-content;
+    }
   }
 
   h2 {

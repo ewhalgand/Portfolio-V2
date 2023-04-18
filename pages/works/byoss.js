@@ -3,65 +3,62 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import gsap from "gsap";
 
-import byoss from "../../public/portfolio/byoss.png";
+import byoss from "../../public/portfolio/byoss.webp";
 
 const ByossDetails = () => {
-
-  const { t } = useTranslation("fr", { useSuspense: false });
-
-  let img = useRef(null);
-  let t1 = useRef(null);
-  let txt = useRef(null);
-  let t2 = useRef(null);
-  let icon = useRef(null);
-  let btn = useRef(null);
+  let img = useRef();
+  let t1 = useRef();
+  let txt = useRef();
+  let t2 = useRef();
+  let icon = useRef();
+  let btn = useRef();
 
   useEffect(() => {
-
-    gsap.from(img, {
-      opacity: 0, 
-      x: -100, 
-      duration: 1,
+    let ctx = gsap.context(() => { 
+      gsap.from(img, {
+        opacity: 0, 
+        x: -100, 
+        duration: 1,
+      })
+  
+      gsap.from(t1, {
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+        delay: 1.2,
+      })
+  
+      gsap.from(txt, {
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+        delay: 1.4,
+      })
+  
+      gsap.from(t2, {
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+        delay: 1.6,
+      })
+  
+      gsap.from(icon, {
+        opacity: 0, 
+        x: 100, 
+        duration: 1,
+        delay: 1.6,
+      })
+  
+      gsap.from(btn, {
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+        delay: 1.8,
+      })
     })
-
-    gsap.from(t1, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 1.2,
-    })
-
-    gsap.from(txt, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 1.4,
-    })
-
-    gsap.from(t2, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 1.6,
-    })
-
-    gsap.from(icon, {
-      opacity: 0, 
-      x: 100, 
-      duration: 1,
-      delay: 1.6,
-    })
-
-    gsap.from(btn, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 1.8,
-    })
-
+    return () => ctx.revert()
   }, [])
 
   return (
@@ -78,23 +75,23 @@ const ByossDetails = () => {
         <div className="right">
           <h1 ref={el => {t1 = el}} >Byoss.me</h1>
           <p ref={el => {txt = el}}>
-            { t('byoss.description') }
+          Byoss.me est un réseau social pour les professionnels ou particuliers dans le style de Linkedin
           </p>
           <div className="techno">
-            <h1 ref={el => {t2 = el}}>{ t('byoss.title') }</h1>
+            <h1 ref={el => {t2 = el}}>Téchnologies utilisées</h1>
             <div className="icons" ref={el => {icon = el}}>
               <a
-                href="https://fr.reactjs.org/"
+                href="https://react.dev/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="/icons/react.png" alt="icons" />
+                <img src="/icons/react.png" alt="icons" title="React JS" />
               </a>
-              <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-                <img src="/icons/next.svg" alt="icons" />
+              <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
+                <img src="/icons/tailwind.png" alt="icons" title="Tailwind CSS" />
               </a>
-              <a href="https://nodejs.org/" target="_blank" rel="noreferrer">
-                <img src="/icons/node.svg" alt="icons" />
+              <a href="https://sass-lang.com/" target="_blank" rel="noreferrer">
+                <img src="/icons/scss.png" alt="icons" title="Scss/Sass" />
               </a>
             </div>
           </div>
@@ -105,7 +102,7 @@ const ByossDetails = () => {
             target="_blank"
             rel="noreferrer"
           >
-            { t('byoss.button') }
+            Visiter le site
           </a>
         </div>
       </Container>

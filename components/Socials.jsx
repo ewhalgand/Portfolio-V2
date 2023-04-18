@@ -8,7 +8,7 @@ import success from "../public/checkmark.svg";
 
 class Socials extends Component {
   state = {
-    value: "Saï#3160",
+    value: "Ewen#3160",
     copied: false,
   };
 
@@ -16,7 +16,7 @@ class Socials extends Component {
     return (
       <>
         <motion.a
-          href="https://twitter.com/Saipatatee"
+          href="https://twitter.com/ewha_dev"
           target="_blank"
           className="btn"
           whileHover={{ scale: 1.1 }}
@@ -34,7 +34,7 @@ class Socials extends Component {
             whileTap={{ scale: 0.9 }}
           >
             {this.state.copied ? (
-                <Image src={success} alt="icone success" />
+              <Image src={success} alt="icone success" />
             ) : (
               <FaDiscord style={{ fontSize: "25px" }} />
             )}

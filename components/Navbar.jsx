@@ -1,40 +1,34 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import Link from "next/link";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  const { t } = useTranslation("fr", { useSuspense: false });
-
   const handleClick = () => {
-    setIsMobile(!isMobile)
-  }
+    setIsMobile(!isMobile);
+  };
 
   return (
     <>
       <Nav>
-        <Burger
-          onClick={handleClick}
-          isMobile={isMobile}
-        >
+        <Burger onClick={handleClick} isMobile={isMobile}>
           <span></span>
         </Burger>
-        <BurgerMenu
-          isMobile={isMobile}
-        >
+        <BurgerMenu isMobile={isMobile}>
           <Link href="/">
-            <a onClick={() => setIsMobile(false)} >{ t('menu.home') }</a>
+            <a onClick={() => setIsMobile(false)}>Accueil</a>
           </Link>
           <Link href="/#a-propos">
-            <a onClick={() => setIsMobile(false)} >{ t('menu.about') }</a>
+            <a onClick={() => setIsMobile(false)}>À propos</a>
           </Link>
           <Link href="#portfolio">
-            <a onClick={() => setIsMobile(false)} >{ t('menu.portfolio') }</a>
+            <a onClick={() => setIsMobile(false)}>Portfolio</a>
           </Link>
           <Link href="#contact">
-            <a href="#contact" onClick={() => setIsMobile(false)} >{ t('menu.contact') }</a>
+            <a href="#contact" onClick={() => setIsMobile(false)}>
+              Me Contacter
+            </a>
           </Link>
         </BurgerMenu>
       </Nav>
@@ -87,7 +81,7 @@ const BurgerMenu = styled.div`
     top: 100%;
     align-items: center;
     width: 100%;
-    height: ${props => props.isMobile ? "180px" : "0"};
+    height: ${(props) => (props.isMobile ? "180px" : "0")};
     background: #110010;
     left: 0;
     z-index: 9;
@@ -98,7 +92,7 @@ const BurgerMenu = styled.div`
       margin: 8px 0;
     }
   }
-`
+`;
 
 const Burger = styled.div`
   width: 30px;
@@ -111,38 +105,38 @@ const Burger = styled.div`
     display: block;
 
     & span {
-      background: ${props => props.isMobile ? "transparent" : "#fff"};
+      background: ${(props) => (props.isMobile ? "transparent" : "#fff")};
       position: absolute;
       width: 100%;
       height: 3px;
       top: 50%;
       transform: translateY(-50%);
       transition: background 0.4s;
-  
+
       &::before {
         background: #fff;
-        transform: ${props => props.isMobile && "rotate(45deg)"};
-        margin-top: ${props => props.isMobile ? "0" : "10px"};
-        content: '';
+        transform: ${(props) => props.isMobile && "rotate(45deg)"};
+        margin-top: ${(props) => (props.isMobile ? "0" : "10px")};
+        content: "";
         position: absolute;
-        width: ${props => props.isMobile ? "100%" : "50%"};
+        width: ${(props) => (props.isMobile ? "100%" : "50%")};
         height: 3px;
         transition: transform 0.4s, margin 0.4s, width 0.4s;
       }
-  
+
       &::after {
         background: #fff;
-        transform: ${props => props.isMobile && "rotate(-45deg)"};
-        margin-top: ${props => props.isMobile ? "0" : "-10px"};
-        content: '';
+        transform: ${(props) => props.isMobile && "rotate(-45deg)"};
+        margin-top: ${(props) => (props.isMobile ? "0" : "-10px")};
+        content: "";
         position: absolute;
-        width: ${props => props.isMobile ? "100%" : "50%"};
+        width: ${(props) => (props.isMobile ? "100%" : "50%")};
         height: 3px;
         right: 0;
         transition: transform 0.4s, margin 0.4s, width 0.4s;
       }
+    }
   }
-}
-`
+`;
 
 export default Navbar;

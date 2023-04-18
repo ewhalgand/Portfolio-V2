@@ -3,65 +3,62 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import gsap from "gsap";
 
-import sai from "../../public/portfolio/sai.png";
+import portfolio from "../../public/portfolio/portfolio.webp";
 
 const MyPortfolio = () => {
-
-  const { t } = useTranslation("fr", { useSuspense: false });
-
-  let img = useRef(null);
-  let t1 = useRef(null);
-  let txt = useRef(null);
-  let t2 = useRef(null);
-  let icon = useRef(null);
-  let btn = useRef(null);
+  let img = useRef();
+  let t1 = useRef();
+  let txt = useRef();
+  let t2 = useRef();
+  let icon = useRef();
+  let btn = useRef();
 
   useEffect(() => {
-
-    gsap.from(img, {
-      opacity: 0, 
-      x: -100, 
-      duration: 1,
+    let ctx = gsap.context(() => { 
+      gsap.from(img, {
+        opacity: 0, 
+        x: -100, 
+        duration: 1,
+      })
+  
+      gsap.from(t1, {
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+        delay: 1.2,
+      })
+  
+      gsap.from(txt, {
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+        delay: 1.4,
+      })
+  
+      gsap.from(t2, {
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+        delay: 1.6,
+      })
+  
+      gsap.from(icon, {
+        opacity: 0, 
+        x: 100, 
+        duration: 1,
+        delay: 1.6,
+      })
+  
+      gsap.from(btn, {
+        opacity: 0, 
+        y: 100, 
+        duration: 1,
+        delay: 1.8,
+      })
     })
-
-    gsap.from(t1, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 1.2,
-    })
-
-    gsap.from(txt, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 1.4,
-    })
-
-    gsap.from(t2, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 1.6,
-    })
-
-    gsap.from(icon, {
-      opacity: 0, 
-      x: 100, 
-      duration: 1,
-      delay: 1.6,
-    })
-
-    gsap.from(btn, {
-      opacity: 0, 
-      y: 100, 
-      duration: 1,
-      delay: 1.8,
-    })
-
+    return () => ctx.revert()
   }, [])
 
   return (
@@ -73,38 +70,38 @@ const MyPortfolio = () => {
       </div>
       <Container>
         <div className="left" ref={el => {img = el}}>
-          <Image className="banner" src={sai} alt="fantashop" layout="responsive" />
+          <Image className="banner" src={portfolio} alt="fantashop" layout="responsive" />
         </div>
         <div className="right">
           <h1 ref={el => {t1 = el}}>Mon Portfolio</h1>
           <p ref={el => {txt = el}}>
-            { t('me.description') }
+          Site web représentant mon activité de développeur web, mes compétences et les technologies que j&apos;utilise
           </p>
           <div className="techno">
-            <h1 ref={el => {t2 = el}}>{ t('me.title') }</h1>
+            <h1 ref={el => {t2 = el}}>Téchnologies utilisées</h1>
             <div className="icons" ref={el => {icon = el}}>
               <a
-                href="https://fr.reactjs.org/"
+                href="https://react.dev/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="/icons/react.png" alt="icons" />
+                <img src="/icons/react.png" alt="icons" title="React JS" />
               </a>
               <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-                <img src="/icons/next.svg" alt="icons" />
+                <img src="/icons/next.svg" alt="icons" title="Next JS" />
               </a>
               <a
                 href="https://styled-components.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="/icons/sc.png" alt="icons" />
+                <img src="/icons/sc.png" alt="icons" title="Styled-components" />
               </a>
               <a href="https://www.framer.com/motion/" target="_blank" rel="noreferrer">
-                <img src="/icons/framer.svg" alt="icons" />
+                <img src="/icons/framer.svg" alt="icons" title="Framer motion" />
               </a>
               <a href="https://greensock.com/" target="_blank" rel="noreferrer">
-                <img src="/icons/gsap.png" alt="icons" />
+                <img src="/icons/gsap.png" alt="icons" title="Greensock" />
               </a>
             </div>
           </div>
@@ -115,7 +112,7 @@ const MyPortfolio = () => {
             target="_blank"
             rel="noreferrer"
           >
-            { t('me.button') }
+            Voir le code
           </a>
         </div>
       </Container>

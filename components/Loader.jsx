@@ -1,12 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
 const Loader = () => {
-    return ( 
-        <Load>
-            <img src="/logo-dev.png" alt="test" />
-        </Load>
-     );
-}
+  return <Load>Attendez un peu</Load>;
+};
 
 const rotateAnimation = keyframes`
   0% { transform: rotate(0deg); }
@@ -14,19 +10,19 @@ const rotateAnimation = keyframes`
 `;
 
 const Load = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    
-    img {
-        height: 190px;
-        width: 190px;
-        border-radius: 50%;
-        animation-name: ${rotateAnimation};
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-    }
-`
- 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  img {
+    height: 190px;
+    width: 190px;
+    border-radius: 50%;
+    animation-name: ${rotateAnimation};
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+`;
+
 export default Loader;
