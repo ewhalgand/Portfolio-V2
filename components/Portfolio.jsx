@@ -77,7 +77,7 @@ const Portfolio = () => {
         <Box ref={el => {box = el}}>
           <img className="banner" src="/portfolio/fts.webp" alt="fantashop" />
           <h2>FantaShop</h2>
-          <a href="https://fantashop.fr/" target="_blank" rel="noreferrer">Voir plus</a>
+          <a href="https://github.com/Saipatate/FantaShop_Site" target="_blank" rel="noreferrer">Voir plus</a>
           <Link href="/works/fantashop">En savoir plus</Link>
         </Box>
         <Box ref={el => {box2 = el}}>
