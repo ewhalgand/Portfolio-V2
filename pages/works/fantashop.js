@@ -99,11 +99,11 @@ const FantashopDetails = () => {
           <a
             ref={el => {btn = el}}
             className="link"
-            href="https://fantashop.fr/"
+            href="https://github.com/Saipatate/FantaShop_Site"
             target="_blank"
             rel="noreferrer"
           >
-            Visiter le site
+            Voir le code
           </a>
         </div>
       </Container>
