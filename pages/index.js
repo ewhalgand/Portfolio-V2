@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import About from "../components/About";
 import Portfolio from "../components/Portfolio";
 import Techno from "../components/Techno";
@@ -18,71 +18,88 @@ export default function Home() {
   let img = useRef();
 
   useEffect(() => {
-      let ctx = gsap.context(() => {
-        gsap.from(bigTitle, {
-          duration: 1.5,
-          opacity: 0,
-          ease: "bounce",
-          x: 140
-        })
-    
-        gsap.from(smallTitle, {
-          duration: 1.5,
-          opacity: 0,
-          ease: "bounce",
-          x: 140,
-          delay: 0.5
-        })
-    
-        gsap.from(btn, {
-          duration: 1.5,
-          opacity: 0,
-          ease: "bounce",
-          x: 140,
-          delay: 1
-        })
-    
-        gsap.from(img, {
-          x: -140,
-          ease: "slow",
-          duration: 1,
-        })
-      })
-      return () => ctx.revert();
-  }, [])
+    let ctx = gsap.context(() => {
+    if (window.innerWidth > 500) {
+      gsap.from(bigTitle, {
+        duration: 1.5,
+        opacity: 0,
+        ease: "bounce",
+        x: 140,
+      });
 
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
+      gsap.from(smallTitle, {
+        duration: 1.5,
+        opacity: 0,
+        ease: "bounce",
+        x: 140,
+        delay: 0.5,
+      });
+
+      gsap.from(btn, {
+        duration: 1.5,
+        opacity: 0,
+        ease: "bounce",
+        x: 140,
+        delay: 1,
+      });
+    } else {
+      gsap.from(bigTitle, {
+        duration: 1.5,
+        opacity: 0,
+        ease: "bounce",
+        x: -140,
+        delay: 0.5,
+      });
+
+      gsap.from(smallTitle, {
+        duration: 1.5,
+        opacity: 0,
+        ease: "bounce",
+        x: -140,
+        delay: 1,
+      });
+
+      gsap.from(btn, {
+        duration: 1.5,
+        opacity: 0,
+        ease: "bounce",
+        x: -140,
+        delay: 1.5,
+      });
     }
-  };
-  
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
+
+    gsap.from(img, {
+      x: 140,
+      opacity: 0,
+      ease: "elastic",
+      duration: 2,
+    });
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
       <Section>
         <Header>
-          <Title ref={el => {bigTitle = el}} >
-            Bonjour, je m&apos;appelle <br /> Ewen a.k.a Saï
+          <Title
+            ref={(el) => {
+              bigTitle = el;
+            }}
+          >
+            Bonjour, je m&apos;appelle <br /> Ewen Halgand
           </Title>
-          <SmallTitle ref={el => {smallTitle = el}}>
+          <SmallTitle
+            ref={(el) => {
+              smallTitle = el;
+            }}
+          >
             Développeur web <span>frontend</span>
           </SmallTitle>
           <motion.a
-            ref={el => {btn = el}}
+            ref={(el) => {
+              btn = el;
+            }}
             className="btn"
             href="/#a-propos"
             whileHover={{ scale: 1.1 }}
@@ -92,7 +109,11 @@ export default function Home() {
             <IoIosArrowDown className="arrow" />
           </motion.a>
         </Header>
-        <ImgContainer ref={el => {img = el}} >
+        <ImgContainer
+          ref={(el) => {
+            img = el;
+          }}
+        >
           <Image src={banner} alt="banner" />
         </ImgContainer>
       </Section>
@@ -104,10 +125,8 @@ export default function Home() {
   );
 }
 
-
-
 const Section = styled.div`
-  height: 80vh;
+  height: 100%;
   display: flex;
   justify-content: center;
 
@@ -167,7 +186,7 @@ const Header = styled.div`
   }
 
   @media screen and (max-width: 700px) {
-    min-width: 100%;
+    min-width: auto;
   }
 `;
 
@@ -190,9 +209,17 @@ const SmallTitle = styled.h2`
 `;
 
 const ImgContainer = styled.div`
+  margin-top: 140px;
   width: 60%;
   display: flex;
   align-items: flex-end;
+
+  @media screen and (max-width: 1720px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
 
   @media screen and (max-width: 1220px) {
     width: 80%;

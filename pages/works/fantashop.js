@@ -6,6 +6,7 @@ import styled from "styled-components";
 import gsap from "gsap";
 
 import fts from "../../public/portfolio/fts.webp";
+import Loader from "../../components/Loader";
 
 const FantashopDetails = () => {
   let img = useRef();
@@ -16,50 +17,50 @@ const FantashopDetails = () => {
   let btn = useRef();
 
   useEffect(() => {
-    let ctx = gsap.context(() => { 
+    let ctx = gsap.context(() => {
       gsap.from(img, {
-        opacity: 0, 
-        x: -100, 
+        opacity: 0,
+        x: -100,
         duration: 1,
-      })
-  
+      });
+
       gsap.from(t1, {
-        opacity: 0, 
-        y: 100, 
+        opacity: 0,
+        y: 100,
         duration: 1,
         delay: 1.2,
-      })
-  
+      });
+
       gsap.from(txt, {
-        opacity: 0, 
-        y: 100, 
+        opacity: 0,
+        y: 100,
         duration: 1,
         delay: 1.4,
-      })
-  
+      });
+
       gsap.from(t2, {
-        opacity: 0, 
-        y: 100, 
+        opacity: 0,
+        y: 100,
         duration: 1,
         delay: 1.6,
-      })
-  
+      });
+
       gsap.from(icon, {
-        opacity: 0, 
-        x: 100, 
+        opacity: 0,
+        x: 100,
         duration: 1,
         delay: 1.6,
-      })
-  
+      });
+
       gsap.from(btn, {
-        opacity: 0, 
-        y: 100, 
+        opacity: 0,
+        y: 100,
         duration: 1,
         delay: 1.8,
-      })
-    })
-    return () => ctx.revert()
-  }, [])
+      });
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
     <Section>
@@ -69,22 +70,50 @@ const FantashopDetails = () => {
         <span>FantaShop</span>
       </div>
       <Container>
-        <div className="left" ref={el => {img = el}}>
-          <Image className="banner" src={fts} alt="fantashop" layout="responsive" />
+        <div
+          className="left"
+          ref={(el) => {
+            img = el;
+          }}
+        >
+          <Image
+            className="banner"
+            src={fts}
+            alt="fantashop"
+            layout="responsive"
+          />
         </div>
         <div className="right">
-          <h1 ref={el => {t1 = el}}>FantaShop</h1>
-          <p ref={el => {txt = el}}>
-            Le fantashop est un market dédier au serveur pvp faction moddé Paladium
+          <h1
+            ref={(el) => {
+              t1 = el;
+            }}
+          >
+            FantaShop
+          </h1>
+          <p
+            ref={(el) => {
+              txt = el;
+            }}
+          >
+            Le fantashop est un market dédier au serveur pvp faction moddé
+            Paladium
           </p>
           <div className="techno">
-            <h1 ref={el => {t2 = el}}>Téchnologies utilisées</h1>
-            <div className="icons" ref={el => {icon = el}}>
-              <a
-                href="https://react.dev/"
-                target="_blank"
-                rel="noreferrer"
-              >
+            <h1
+              ref={(el) => {
+                t2 = el;
+              }}
+            >
+              Téchnologies utilisées
+            </h1>
+            <div
+              className="icons"
+              ref={(el) => {
+                icon = el;
+              }}
+            >
+              <a href="https://react.dev/" target="_blank" rel="noreferrer">
                 <img src="/icons/react.png" alt="icons" title="React JS" />
               </a>
               <a
@@ -92,12 +121,18 @@ const FantashopDetails = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="/icons/sc.png" alt="icons" title="Styled-components" />
+                <img
+                  src="/icons/sc.png"
+                  alt="icons"
+                  title="Styled-components"
+                />
               </a>
             </div>
           </div>
           <a
-            ref={el => {btn = el}}
+            ref={(el) => {
+              btn = el;
+            }}
             className="link"
             href="https://github.com/Saipatate/FantaShop_Site"
             target="_blank"

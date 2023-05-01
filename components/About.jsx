@@ -52,7 +52,7 @@ const About = () => {
           p1 = el;
         }}
       >
-        Je m&apos;appelle Ewen, je suis un développeur web français de 17 ans
+        Je m&apos;appelle Ewen, je suis un développeur web français de 18 ans
         <br />
         <br />
         Je suis développeur frontend depuis presque 3 ans et développeur backend novice
