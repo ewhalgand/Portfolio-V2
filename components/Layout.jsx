@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
         <meta property="twitter:card" content="summary_large_image"/>
         <meta property="twitter:title" content="Ewen HALGAND - Développeur Frontend"/>
         <meta property="twitter:description" content="Découvrez à travers mon portfolio qui je suis et ce que je fais."/>
-        <title>Ewen - Développeur frontend</title>
+        <title>Ewen HALGAND - Développeur frontend</title>
       </Head>
 
       <Navbar />
