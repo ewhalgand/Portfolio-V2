@@ -20,21 +20,21 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Saï homepage" />
-        <meta name="author" content="Saï" />
-        <meta property="title" content="Saï - Développeur frontend" />
-        <meta name="twitter:title" content="Saï" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@Saipatatee" />
-        <meta name="twitter:creator" content="@Saipatatee" />
-        <meta name="twitter:image" content="https://ewha.fr/portfolio/sai.png"/>
-        <meta property="og:site_name" content="Ewen Halgand" />
-        <meta name="og:title" content="Saï" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ewha.fr/portfolio/sai.png" />
-        <meta name="keywords" content="ewen, saï, saipatate, web, developer, développeur, frontend, fantashop"
-        />
+        {/* <link rel="icon" type="image/svg+xml" href="/img/logo.png" /> */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#6c00c4"/>
+        <meta name="title" content="Ewen HALGAND - Développeur Frontend"/>
+        <meta name="author" content="Ewen HALGAND" />
+        <meta property="site_name" content="Ewen HALGAND" />
+        <meta name="description" content="Découvrez à travers mon portfolio qui je suis et ce que je fais."/>
+        
+        <meta property="og:site_name" content="Ewen HALGAND" />
+        <meta property="og:title" content="Ewen HALGAND - Développeur Frontend"/>
+        <meta property="og:description" content="Découvrez à travers mon portfolio qui je suis et ce que je fais."/>
+
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:title" content="Ewen HALGAND - Développeur Frontend"/>
+        <meta property="twitter:description" content="Découvrez à travers mon portfolio qui je suis et ce que je fais."/>
         <title>Ewen - Développeur frontend</title>
       </Head>
 
