@@ -83,7 +83,7 @@ const Portfolio = () => {
         <Box ref={el => {box2 = el}}>
           <img className="banner" src="/portfolio/byoss.webp" alt="fantashop" />
           <h2>Byoss.me</h2>
-          <a href="https://www.byoss.me/fr/coming-soon" target="_blank" rel="noreferrer">Voir plus</a>
+          <a href="https://byoss.me/" target="_blank" rel="noreferrer">Voir plus</a>
           <Link href="/works/byoss">En savoir plus</Link>
         </Box>
         <Box ref={el => {box3 = el}}>
