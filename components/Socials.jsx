@@ -8,7 +8,7 @@ import success from "../public/checkmark.svg";
 
 class Socials extends Component {
   state = {
-    value: "Ewen#3160",
+    value: "ewha0",
     copied: false,
   };
 
